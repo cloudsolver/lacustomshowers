@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="techlogix@gmail.com">
+<link rel="shortcut icon" href="images/favicon.png">
+<title>Gallery : Mitchell Ceramic Tile and Marble. LA Custom Showers Indianapolis, IN</title>
+<!-- Bootstrap core CSS -->
+<link href="./css/bootstrap.css" rel="stylesheet">
+<script src="./js/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="./js/jqueryui-widget.min.js"></script>
+<script src="./js/simple-gallery.min.js"></script>
+<style>
+#images {
+	text-align: center;
+}
+
+#images  img {
+	max-width: 200px;
+	padding: 1px;
+	margin-left: 5px;
+	float: left;
+	margin-right: 5px;
+	transition: width 500ms;
+	-webkit-transition: width 500ms;
+	-moz-transition: width 500ms;
+	-ms-transition: width 500ms;
+	-o-transition: width 500ms;
+	&:
+	extend
+	(.img-responsive);
+}
+
+#full {
+	margin: 1px;
+	width: 800px;
+	height: 600px;
+}
+
+.selected {
+	background-color: gray;
+}
+
+#caption {
+	clear: left;
+}
+</style>
+</head>
+<!-- NAVBAR
+================================================== -->
+<body>
+	<!-- nav wrapper -->
+	<!-- <div class="navbar-wrapper navbar-fixed-top" role="navigation"> -->
+	<div class="container">
+		<div class="navbar navbar-default navbar-static-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<!-- <span class="sr-only">Toggle navigation</span>-->
+						<span class="glyphicon glyphicon-align-justify"></span>
+					</button>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<!-- 	<li><img src="images/la-banner.png" /></li>-->
+						<!-- This is the wide banner -->
+						<li>
+							<a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a>
+						</li>
+						<li class="active">
+							<a href="gallery.html"><span class="glyphicon glyphicon-picture"></span> Gallery</a>
+						</li>
+						<li>
+							<a href="contact.html"><span class="glyphicon glyphicon-user"></span> Contact</a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="faq.html"><span class="glyphicon glyphicon-pushpin"></span> FAQ</a>
+								</li>
+								<li>
+									<a href="testimonials.html"><span class="glyphicon glyphicon-bullhorn"></span> Testimonials</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- </div>-->
+	<!-- End nav -->
+	<!-- Start Gallery Slide show -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div id="images">
+					<img src="./images/gallery/img1.jpg" class="img-rounded"
+						title="This is a backspash, work in progress at a home in Carmel, IN." />
+					<img src="./images/gallery/img2.jpg" class="img-rounded" title="image 2" />
+					<img src="./images/gallery/img3.jpg" class="img-rounded" title="image 3" />
+					<img src="./images/gallery/img4.jpg" class="img-rounded" title="image 4" />
+					<img src="./images/gallery/img5.jpg" class="img-rounded" title="image 5" />
+					<img src="./images/gallery/img6.jpg" class="img-rounded" title="image 6" />
+					<img src="./images/gallery/img7.jpg" class="img-rounded" title="image 7" />
+					<img src="./images/gallery/img8.jpg" class="img-rounded" title="image 8" />
+
+				</div>
+
+				<div class="col-md-6">
+					<div id="full" class="hidden-xs hidden-sm"></div>
+					<p id="caption" class="hidden-xs hidden-sm"></p>
+				</div>
+			</div>
+		</div>
+		<!-- End gallery -->
+		<div class="row">
+			<div class="col-md-12">
+				<footer>
+					<p class="pull-right">
+						<a href="#">Back to top</a>
+					</p>
+					<p>
+						&copy; 2013 Mitchell Cermaic Tile and Marble. &middot; Mobile Site Created By <a href="www.DigitalDivvy.com">Visit
+							Digital Divvy</a>
+					</p>
+				</footer>
+			</div>
+		</div>
+	</div>
+
+	<script src="./js/bootstrap.min.js"></script>
+	<script>
+		$('#full').gallery({
+			source : "#images img",
+			easing : "linear",
+			waitTime : 2000,
+			changeTime : 400,
+			showCaptions : true,
+			captionTarget : "#caption"
+		});
+
+		$("#full").on({
+			mouseenter : function() {
+				$("#full").gallery("stopAnimation");
+			},
+			mouseleave : function() {
+				$("#full").gallery("resumeAnimation");
+			}
+		});
+
+		$("#full").on({
+			galleryimageload : function() {
+				console.log("new image loaded");
+			},
+			galleryclick : function() {
+				console.log("gallery source image clicked");
+			},
+			galleryanimationstop : function() {
+				console.log("gallery animation stopped");
+			},
+			galleryanimationresume : function() {
+				console.log("gallery animation resumed");
+			}
+		});
+	</script>
+
+</body>
+</html>
